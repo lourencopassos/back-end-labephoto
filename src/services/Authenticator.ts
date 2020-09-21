@@ -8,7 +8,6 @@ export class Authenticator {
     const token = jwt.sign(
       {
         id: input.id,
-        nickname: input.nickname,
       },
       process.env.JWT_KEY as string,
       {
@@ -22,7 +21,6 @@ export class Authenticator {
     const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
     const result = {
       id: payload.id,
-      nickname: payload.nickname,
     };
     return result;
   }
@@ -30,5 +28,4 @@ export class Authenticator {
 
 interface AuthenticationData {
   id: string;
-  nickname: string;
 }

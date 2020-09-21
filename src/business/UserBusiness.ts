@@ -24,7 +24,6 @@ export class UserBusiness {
     const authenticator = new Authenticator();
     const accessToken = authenticator.generateToken({
       id,
-      nickname: user.nickname,
     });
 
     return accessToken;
@@ -43,7 +42,6 @@ export class UserBusiness {
     const authenticator = new Authenticator();
     const accessToken = authenticator.generateToken({
       id: userFromDB.getId(),
-      nickname: userFromDB.getNickname(),
     });
 
     if (!hashCompare) {
